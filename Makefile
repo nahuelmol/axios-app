@@ -1,2 +1,2 @@
 runserver:
-	http-server --proxy https://localhost:8080
+	http-server --proxy http://127.0.0.1:3000

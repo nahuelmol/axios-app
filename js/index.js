@@ -1,18 +1,24 @@
+
 function main(){
+
   var url = 'http://localhost:8000/api/posts';
 
   var headers = {
       'Origin': 'http://localhost:8080',
-      'Access-Control-Request-Method': 'GET',
-      'Access-Control-Request-Headers': 'NCZ'
+      'Access-Control-Allow-Origin':'*',
+      'Access-Control-Request-Method':'GET',
+      'Access-Control-Request-Headers':'NCZ'
     }
+  var config = {
+    url:url,
+    header:headers
+  }
   
-  axios.get(url, headers)
+  axios.request(config)
     .then((response) => {
-    		var result = response.data;
+    		var result = response.data[0];
   
       	console.log(result);
-      	console.log(response.status);
         
   	}).catch(e=>console.log(e));
 }
